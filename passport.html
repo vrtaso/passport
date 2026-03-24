@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Паспорт сайта — Танец как способ самовыражения</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+--bg: #0a0a0a;
+--surface: #141414;
+--surface2: #1e1e1e;
+--border: rgba(212,197,176,0.1);
+--accent: #d4c5b0;
+--accent-dim: rgba(212,197,176,0.3);
+--text: #c0c0c0;
+--text-dim: #707070;
+--white: #ffffff;
+--green: #81d8cf;
+--blue: #7eb6d9;
+--purple: #c3a6ff;
+--orange: #ffb37e;
+--glass: rgba(255, 255, 255, 0.03);
+--glass-border: rgba(255, 255, 255, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+background: var(--bg);
+color: var(--text);
+font-family: 'Manrope', sans-serif;
+font-weight: 300;
+line-height: 1.7;
+}
+body::before {
+content: '';
+position: fixed;
+inset: 0;
+background: url('https://grainy-gradients.vercel.app/noise.svg');
+opacity: 0.04;
+pointer-events: none;
+z-index: 9999;
+}
+.sidebar {
+position: fixed;
+left: 0; top: 0; bottom: 0;
+width: 230px;
+background: var(--surface);
+border-right: 1px solid var(--border);
+padding: 2rem 0;
+z-index: 100;
+overflow-y: auto;
+}
+.sidebar-logo {
+padding: 0 1.5rem 2rem;
+border-bottom: 1px solid var(--border);
+margin-bottom: 1.5rem;
+}
+.sidebar-logo-title {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.2rem;
+font-weight: 300;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--white);
+transition: letter-spacing 0.5s ease;
+cursor: pointer;
+}
+.sidebar-logo-title:hover {
+letter-spacing: 0.3em;
+}
+.sidebar-logo-sub {
+font-size: 0.6rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--accent);
+margin-top: 0.25rem;
+}
+.sidebar-label {
+font-size: 0.55rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(--text-dim);
+padding: 0 1.5rem;
+margin-bottom: 0.5rem;
+margin-top: 1rem;
+}
+.sidebar a {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+padding: 0.7rem 1.5rem;
+font-size: 0.75rem;
+color: var(--text-dim);
+text-decoration: none;
+letter-spacing: 0.05em;
+transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+border-left: 2px solid transparent;
+position: relative;
+}
+.sidebar a::after {
+content: '';
+position: absolute;
+right: 1.5rem;
+width: 4px;
+height: 4px;
+background: var(--accent);
+border-radius: 50%;
+opacity: 0;
+transform: scale(0);
+transition: all 0.3s ease;
+}
+.sidebar a:hover::after, .sidebar a.active::after {
+opacity: 1;
+transform: scale(1);
+}
+.sidebar a:hover, .sidebar a.active {
+color: var(--accent);
+border-left-color: var(--accent);
+background: rgba(212,197,176,0.05);
+}
+.sidebar a .dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(--text-dim);
+flex-shrink: 0;
+transition: background 0.2s;
+}
+.sidebar a:hover .dot, .sidebar a.active .dot {
+background: var(--accent);
+}
+main {
+margin-left: 230px;
+padding: 0 3rem 6rem;
+max-width: 1100px;
+}
+.hero {
+padding: 5rem 0 4rem;
+border-bottom: 1px solid var(--border);
+margin-bottom: 4rem;
+}
+.badge {
+display: inline-flex;
+align-items: center;
+gap: 0.6rem;
+background: var(--glass);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid var(--glass-border);
+border-radius: 50px;
+padding: 0.4rem 1.2rem;
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent);
+margin-bottom: 2rem;
+transition: all 0.3s ease;
+}
+.badge:hover {
+background: var(--accent-dim);
+color: var(--white);
+}
+.badge-dot {
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(--green);
+animation: pulse 2s infinite;
+}
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.3; }
+}
+.hero h1 {
+font-family: 'Cormorant Garamond', serif;
+font-size: clamp(2rem, 4vw, 3.5rem);
+font-weight: 300;
+line-height: 1.1;
+color: var(--white);
+text-transform: uppercase;
+letter-spacing: 0.05em;
+margin-bottom: 1rem;
+}
+.hero h1 em {
+font-style: italic;
+color: var(--accent);
+}
+.hero-meta {
+display: flex;
+gap: 2rem;
+flex-wrap: wrap;
+margin-top: 2rem;
+}
+.meta-item {
+display: flex;
+flex-direction: column;
+gap: 0.2rem;
+}
+.meta-label {
+font-size: 0.6rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(--text-dim);
+}
+.meta-value {
+font-size: 0.9rem;
+color: var(--white);
+}
+section {
+margin-bottom: 4rem;
+scroll-margin-top: 2rem;
+}
+.section-header {
+display: flex;
+align-items: center;
+gap: 1rem;
+margin-bottom: 2rem;
+}
+.section-num {
+font-family: 'Cormorant Garamond', serif;
+font-size: 0.8rem;
+color: var(--accent-dim);
+letter-spacing: 0.1em;
+}
+.section-line {
+flex: 1;
+height: 1px;
+background: var(--border);
+}
+h2 {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.8rem;
+font-weight: 300;
+color: var(--white);
+text-transform: uppercase;
+letter-spacing: 0.1em;
+}
+h3 {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.2rem;
+font-weight: 400;
+color: var(--white);
+margin-bottom: 0.75rem;
+letter-spacing: 0.05em;
+}
+p {
+font-size: 0.85rem;
+color: var(--text);
+line-height: 1.8;
+margin-bottom: 0.75rem;
+}
+.card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 1.5rem;
+margin-bottom: 1rem;
+transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+transform: translateY(-5px);
+border-color: var(--accent-dim);
+box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 1rem;
+}
+.file-tree {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+padding: 1.5rem;
+font-family: 'Courier New', monospace;
+font-size: 0.8rem;
+}
+.file-tree-item {
+display: flex;
+align-items: center;
+gap: 0.7rem;
+padding: 0.4rem 0.8rem;
+color: var(--text);
+border-radius: 4px;
+transition: background 0.2s ease;
+}
+.file-tree-item:hover {
+background: rgba(255,255,255,0.03);
+}
+.file-tree-item.folder { color: var(--accent); font-weight: 600; }
+.file-tree-item.html { color: var(--orange); }
+.file-tree-item.img { color: var(--blue); }
+.file-tree-item.indent { padding-left: 1.5rem; }
+.file-tree-item.indent2 { padding-left: 3rem; }
+.swatches {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+margin-top: 1rem;
+}
+.swatch {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.5rem;
+}
+.swatch-color {
+width: 56px; height: 56px;
+border-radius: 12px;
+border: 1px solid rgba(255,255,255,0.1);
+transition: transform 0.3s ease;
+cursor: pointer;
+}
+.swatch-color:hover {
+transform: scale(1.1) rotate(5deg);
+}
+.swatch-name {
+font-size: 0.6rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--text-dim);
+}
+.swatch-hex {
+font-family: 'Courier New', monospace;
+font-size: 0.65rem;
+color: var(--accent);
+}
+.code-block {
+background: #0d0d0d;
+border: 1px solid var(--border);
+border-radius: 4px;
+padding: 1.25rem 1.5rem;
+margin: 1rem 0;
+overflow-x: auto;
+}
+.code-block pre {
+font-family: 'Courier New', monospace;
+font-size: 0.78rem;
+line-height: 1.6;
+color: var(--text);
+white-space: pre;
+}
+.code-header {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+margin-bottom: 0.75rem;
+padding-bottom: 0.75rem;
+border-bottom: 1px solid var(--border);
+}
+.code-lang {
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--accent);
+}
+.code-dot { width: 8px; height: 8px; border-radius: 50%; }
+.cd-red { background: #ff5f57; }
+.cd-yellow { background: #febc2e; }
+.cd-green { background: #28c840; }
+.kw { color: #bb86fc; }
+.str { color: #6fcf97; }
+.com { color: #555; font-style: italic; }
+.prop { color: #56b4d3; }
+.val { color: #f2994a; }
+.sel { color: #d4c5b0; }
+.fn { color: #bb86fc; }
+.num { color: #f2994a; }
+.tag {
+display: inline-block;
+padding: 0.15rem 0.6rem;
+border-radius: 3px;
+font-size: 0.65rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-weight: 500;
+}
+.tag-green { background: rgba(111,207,151,0.15); color: var(--green); border: 1px solid rgba(111,207,151,0.3); }
+.tag-blue { background: rgba(86,180,211,0.15); color: var(--blue); border: 1px solid rgba(86,180,211,0.3); }
+.tag-purple { background: rgba(187,134,252,0.15); color: var(--purple); border: 1px solid rgba(187,134,252,0.3); }
+.tag-orange { background: rgba(242,153,74,0.15); color: var(--orange); border: 1px solid rgba(242,153,74,0.3); }
+.tag-accent { background: rgba(212,197,176,0.12); color: var(--accent); border: 1px solid var(--border); }
+.page-card {
+background: var(--glass);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+border: 1px solid var(--glass-border);
+border-radius: 12px;
+padding: 2rem;
+margin-bottom: 2rem;
+position: relative;
+overflow: hidden;
+transition: all 0.4s ease;
+}
+.page-card:hover {
+background: rgba(255, 255, 255, 0.05);
+border-color: var(--accent-dim);
+}
+.page-card::before {
+content: '';
+position: absolute;
+left: 0; top: 0; bottom: 0;
+width: 3px;
+background: var(--accent);
+}
+.page-card-header {
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 1rem;
+margin-bottom: 1rem;
+}
+.page-card-title {
+font-family: 'Courier New', monospace;
+font-size: 1rem;
+color: var(--orange);
+}
+.page-card-tags {
+display: flex;
+gap: 0.4rem;
+flex-wrap: wrap;
+}
+.script-card {
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 1.25rem 1.5rem;
+margin-bottom: 0.75rem;
+transition: all 0.3s ease;
+}
+.script-card:hover {
+border-color: var(--accent-dim);
+background: rgba(255,255,255,0.02);
+}
+.script-card-header {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-bottom: 0.5rem;
+}
+.script-num {
+font-family: 'Cormorant Garamond', serif;
+font-size: 1.5rem;
+color: var(--accent-dim);
+line-height: 1;
+}
+.script-title {
+font-size: 0.85rem;
+font-weight: 500;
+color: var(--white);
+}
+.script-where {
+font-size: 0.65rem;
+color: var(--text-dim);
+letter-spacing: 0.1em;
+}
+.info-table {
+width: 100%;
+border-collapse: collapse;
+font-size: 0.8rem;
+}
+.info-table th {
+text-align: left;
+padding: 0.75rem 1rem;
+font-size: 0.6rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--text-dim);
+border-bottom: 1px solid var(--border);
+font-weight: 400;
+}
+.info-table td {
+padding: 0.75rem 1rem;
+border-bottom: 1px solid rgba(212,197,176,0.06);
+vertical-align: top;
+line-height: 1.5;
+transition: background 0.2s ease;
+}
+.info-table tr:hover td {
+background: rgba(255,255,255,0.02);
+}
+.info-table tr:last-child td { border-bottom: none; }
+.info-table td:first-child {
+font-family: 'Courier New', monospace;
+color: var(--blue);
+white-space: nowrap;
+}
+.tutorials-note {
+background: linear-gradient(135deg, rgba(187,134,252,0.08), rgba(86,180,211,0.08));
+border: 1px solid rgba(187,134,252,0.25);
+border-radius: 4px;
+padding: 2rem;
+position: relative;
+overflow: hidden;
+}
+.tutorials-note::before {
+content: '✦';
+position: absolute;
+top: -10px; right: -10px;
+font-size: 6rem;
+color: rgba(187,134,252,0.05);
+line-height: 1;
+}
+.tutorials-note h3 {
+color: var(--purple);
+margin-bottom: 1rem;
+}
+.font-showcase {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 4px;
+padding: 1.5rem;
+margin-bottom: 1rem;
+}
+.font-sample-big {
+font-family: 'Cormorant Garamond', serif;
+font-size: 2.5rem;
+color: var(--white);
+font-weight: 300;
+line-height: 1;
+margin-bottom: 0.5rem;
+}
+.font-sample-big.manrope {
+font-family: 'Manrope', sans-serif;
+font-size: 1.5rem;
+letter-spacing: 0.03em;
+}
+.font-meta {
+font-size: 0.65rem;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(--text-dim);
+}
+.img-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+gap: 0.75rem;
+}
+.img-item {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 1rem;
+transition: all 0.3s ease;
+}
+.img-item:hover {
+transform: scale(1.02);
+border-color: var(--accent-dim);
+}
+.img-filename {
+font-family: 'Courier New', monospace;
+font-size: 0.75rem;
+color: var(--blue);
+margin-bottom: 0.3rem;
+}
+.img-desc {
+font-size: 0.7rem;
+color: var(--text-dim);
+}
+.lib-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 1rem;
+}
+.lib-card {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 1.5rem;
+transition: all 0.3s ease;
+}
+.lib-card:hover {
+border-color: var(--accent-dim);
+background: var(--surface2);
+}
+.lib-name {
+font-size: 0.9rem;
+color: var(--white);
+font-weight: 500;
+margin-bottom: 0.25rem;
+}
+.lib-version {
+font-family: 'Courier New', monospace;
+font-size: 0.65rem;
+color: var(--accent);
+}
+.lib-source {
+font-size: 0.65rem;
+color: var(--text-dim);
+margin-top: 0.5rem;
+word-break: break-all;
+}
+.divider {
+height: 1px;
+background: var(--border);
+margin: 2rem 0;
+}
+.scroll-top {
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+width: 40px; height: 40px;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+color: var(--accent);
+font-size: 1rem;
+text-decoration: none;
+transition: all 0.2s;
+z-index: 200;
+}
+.scroll-top:hover { background: var(--accent); color: var(--bg); }
+@media (max-width: 800px) {
+.sidebar {
+transform: translateX(-100%);
+transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+display: block;
+width: 100%;
+max-width: 300px;
+box-shadow: 20px 0 50px rgba(0,0,0,0.5);
+}
+.sidebar.active {
+transform: translateX(0);
+}
+main { margin-left: 0; padding: 5rem 1.5rem 1.5rem; }
+.mobile-nav-toggle {
+display: flex;
+position: fixed;
+top: 1.5rem;
+left: 1.5rem;
+z-index: 1001;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 0.6rem;
+cursor: pointer;
+align-items: center;
+gap: 0.5rem;
+color: var(--accent);
+font-size: 0.7rem;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+backdrop-filter: blur(10px);
+}
+.mobile-nav-toggle .hamburger {
+width: 18px;
+height: 12px;
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.mobile-nav-toggle .hamburger span {
+width: 100%;
+height: 1.5px;
+background: var(--accent);
+transition: 0.3s;
+}
+.mobile-nav-toggle.active .hamburger span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+.mobile-nav-toggle.active .hamburger span:nth-child(2) { opacity: 0; }
+.mobile-nav-toggle.active .hamburger span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+}
+@media (min-width: 801px) {
+.mobile-nav-toggle { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="mobile-nav-toggle" id="mobileToggle">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+<span>Меню</span>
+</div>
+<nav class="sidebar">
+<div class="sidebar-logo">
+<div class="sidebar-logo-title">DANCE<span style="color:var(--accent)">.</span></div>
+<div class="sidebar-logo-sub">Паспорт сайта</div>
+</div>
+<div class="sidebar-label">Обзор</div>
+<a href="#overview"><span class="dot"></span> Описание проекта</a>
+<a href="#structure"><span class="dot"></span> Структура файлов</a>
+<div class="sidebar-label">Дизайн</div>
+<a href="#design"><span class="dot"></span> Цветовая система</a>
+<a href="#typography"><span class="dot"></span> Типографика</a>
+<a href="#libraries"><span class="dot"></span> Библиотеки</a>
+<div class="sidebar-label">Страницы</div>
+<a href="#pages"><span class="dot"></span> index.html</a>
+<a href="#pages"><span class="dot"></span> directions.html</a>
+<a href="#pages"><span class="dot"></span> statistics.html</a>
+<div class="sidebar-label">Код</div>
+<a href="#css"><span class="dot"></span> CSS-система</a>
+<a href="#scripts"><span class="dot"></span> Скрипты</a>
+<a href="#images"><span class="dot"></span> Изображения</a>
+<a href="#glossary"><span class="dot"></span> Глоссарий терминов</a>
+<div class="sidebar-label">Авторство</div>
+<a href="#authorship"><span class="dot"></span> Авторство</a>
+</nav>
+<main>
+<div class="hero">
+<div class="badge"><span class="badge-dot"></span> Проект 2026</div>
+<h1>Паспорт<br><em>сайта</em></h1>
+<p style="color:var(--text-dim); font-size:0.85rem; max-width:500px; margin-top:1rem;">
+Полная техническая документация проекта «Танец как способ самовыражения». Описаны все страницы, стили, скрипты и использованные технологии.
+</p>
+<div class="hero-meta">
+<div class="meta-item">
+<span class="meta-label">Тема</span>
+<span class="meta-value">Танец как самовыражение</span>
+</div>
+<div class="meta-item">
+<span class="meta-label">Страниц</span>
+<span class="meta-value">3</span>
+</div>
+<div class="meta-item">
+<span class="meta-label">Технология</span>
+<span class="meta-value">HTML / CSS / JS</span>
+</div>
+<div class="meta-item">
+<span class="meta-label">Год</span>
+<span class="meta-value">2026</span>
+</div>
+</div>
+</div>
+<section id="overview">
+<div class="section-header">
+<span class="section-num">01</span>
+<h2>Описание проекта</h2>
+<div class="section-line"></div>
+</div>
+<p>Сайт посвящён теме танца как способа самовыражения. Проект состоит из трёх страниц: главная с текстовым рассказом о танце, страница направлений танца и страница со статистикой популярности стилей по возрастным группам.</p>
+<p>Сайт выполнен в едином тёмном эстетическом стиле — тёмный фон, бежевые акценты, элегантная типографика. На всех страницах одинаковые шапка (хедер), навигация и визуальный язык.</p>
+<div class="card-grid" style="margin-top:1.5rem;">
+<div class="card">
+<h3>Главная страница</h3>
+<p>Рассказ о танце как искусстве и способе выразить чувства. Три текстово-визуальных блока с изображениями и карточки «Почему танец важен?»</p>
+<div style="margin-top:0.75rem;"><span class="tag tag-orange">index.html</span></div>
+</div>
+<div class="card">
+<h3>Направления</h3>
+<p>Слайдер с карточками восьми стилей танца (балет, бальные, jazz, contemporary, hip-hop, breakdance, народные). Секция «О направлениях».</p>
+<div style="margin-top:0.75rem;"><span class="tag tag-orange">directions.html</span></div>
+</div>
+<div class="card">
+<h3>Статистика</h3>
+<p>Визуализация популярности танцевальных направлений по возрастным группам: графики (столбцы/полосы) и сводная таблица с выводами.</p>
+<div style="margin-top:0.75rem;"><span class="tag tag-orange">statistics.html</span></div>
+</div>
+</div>
+</section>
+<section id="structure">
+<div class="section-header">
+<span class="section-num">02</span>
+<h2>Структура файлов</h2>
+<div class="section-line"></div>
+</div>
+<p>Все файлы находятся в одной папке (без подпапок). Нет сборщиков, фреймворков или бэкенда — сайт полностью статический.</p>
+<div class="file-tree" style="margin-top:1.5rem;">
+<div class="file-tree-item folder">📁 dance-project/</div>
+<div class="file-tree-item html indent">📄 index.html <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— главная страница</span></div>
+<div class="file-tree-item html indent">📄 directions.html <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— направления танцев</span></div>
+<div class="file-tree-item html indent">📄 statistics.html <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— статистика популярности</span></div>
+<div class="file-tree-item img indent" style="margin-top:0.5rem;">🖼 1.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— групповой танец с шарами</span></div>
+<div class="file-tree-item img indent">🖼 2.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— contemporary: захваты</span></div>
+<div class="file-tree-item img indent">🖼 3.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— модерн: руки вверх</span></div>
+<div class="file-tree-item img indent">🖼 bal.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— бальные танцы (пара)</span></div>
+<div class="file-tree-item img indent">🖼 balet.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— балерина (силуэт)</span></div>
+<div class="file-tree-item img indent">🖼 break.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— брейкданс (стойка)</span></div>
+<div class="file-tree-item img indent">🖼 hop.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— hip-hop (силуэт)</span></div>
+<div class="file-tree-item img indent">🖼 jazz.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— джаз-фанк (силуэт)</span></div>
+<div class="file-tree-item img indent">🖼 kontemp.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— контемпорари</span></div>
+<div class="file-tree-item img indent">🖼 modern.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— модерн</span></div>
+<div class="file-tree-item img indent">🖼 narod.jpg <span style="color:var(--text-dim);font-size:0.7rem;margin-left:1rem;">— народные танцы</span></div>
+</div>
+<div class="card" style="margin-top:1rem; background:#0d0d0d;">
+<p style="font-size:0.78rem; color:var(--text-dim);">
+💡 <strong style="color:var(--accent);">Важно:</strong> все изображения лежат рядом с HTML-файлами, поэтому в коде они подключаются просто по имени: <code style="color:var(--blue);">src="1.jpg"</code>. Для каждой картинки прописан запасной вариант (fallback) через атрибут <code style="color:var(--blue);">onerror</code> — если файл не найден, загружается похожее фото с Unsplash.
+</p>
+</div>
+</section>
+<section id="design">
+<div class="section-header">
+<span class="section-num">03</span>
+<h2>Цветовая система</h2>
+<div class="section-line"></div>
+</div>
+<p>Все цвета заданы через CSS-переменные (<code style="color:var(--blue);">:root</code>). Это позволяет легко поменять всю палитру в одном месте — изменив значение переменной, цвет поменяется сразу на всём сайте.</p>
+<div class="code-block" style="margin-top:1.5rem;">
+<div class="code-header">
+<div class="code-dot cd-red"></div><div class="code-dot cd-yellow"></div><div class="code-dot cd-green"></div>
+<span class="code-lang">CSS — переменные</span>
+</div>
+<pre><span class="sel">:root</span> {
+<span class="prop">--bg-color</span>: <span class="val">#1a1a1a</span>;    <span class="com">/* тёмно-серый фон */</span>
+<span class="prop">--text-main</span>: <span class="val">#e0e0e0</span>;  <span class="com">/* светло-серый текст */</span>
+<span class="prop">--accent</span>:   <span class="val">#d4c5b0</span>;   <span class="com">/* бежевый акцент */</span>
+<span class="prop">--white</span>:    <span class="val">#ffffff</span>;   <span class="com">/* белый для заголовков */</span>
+}</pre>
+</div>
+<div class="swatches" style="margin-top:1.5rem;">
+<div class="swatch">
+<div class="swatch-color" style="background:#1a1a1a;"></div>
+<div class="swatch-name">--bg-color</div>
+<div class="swatch-hex">#1a1a1a</div>
+</div>
+<div class="swatch">
+<div class="swatch-color" style="background:#e0e0e0;"></div>
+<div class="swatch-name">--text-main</div>
+<div class="swatch-hex">#e0e0e0</div>
+</div>
+<div class="swatch">
+<div class="swatch-color" style="background:#d4c5b0; border-color:rgba(255,255,255,0.3);"></div>
+<div class="swatch-name">--accent</div>
+<div class="swatch-hex">#d4c5b0</div>
+</div>
+<div class="swatch">
+<div class="swatch-color" style="background:#ffffff;"></div>
+<div class="swatch-name">--white</div>
+<div class="swatch-hex">#ffffff</div>
+</div>
+<div class="swatch">
+<div class="swatch-color" style="background:#111111;"></div>
+<div class="swatch-name">Слайдер (bg)</div>
+<div class="swatch-hex">#111111</div>
+</div>
+</div>
+<div class="card" style="margin-top:1.5rem;">
+<h3>Как используется акцентный цвет</h3>
+<p>Бежевый <code style="color:var(--accent);">#d4c5b0</code> применяется для: активных пунктов навигации, подчёркивания ключевого слова в заголовке (<code>outline</code>-эффектом), линии-разделителя в логотипе, иконок карточек, рамок элементов, подписей и меток.</p>
+</div>
+</section>
+<section id="typography">
+<div class="section-header">
+<span class="section-num">04</span>
+<h2>Типографика</h2>
+<div class="section-line"></div>
+</div>
+<p>На сайте используются два шрифта из Google Fonts, которые подгружаются через тег <code style="color:var(--blue);">&lt;link&gt;</code> в разделе <code style="color:var(--blue);">&lt;head&gt;</code>.</p>
+<div class="font-showcase" style="margin-top:1.5rem;">
+<div class="font-sample-big">Cormorant Garamond</div>
+<div class="font-meta" style="margin-bottom:0.75rem;">Serif · weight 300, 400, 600 · italic 400</div>
+<p style="font-size:0.8rem;">Используется для: заголовков h1, h2, h3, логотипа, названий карточек. Придаёт сайту элегантный, «тонкий» характер.</p>
+<div style="margin-top:0.75rem; font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:var(--accent);">
+Танец как способ самовыражения
+</div>
+</div>
+<div class="font-showcase">
+<div class="font-sample-big manrope">Manrope</div>
+<div class="font-meta" style="margin-bottom:0.75rem;">Sans-serif · weight 200, 300, 400, 500</div>
+<p style="font-size:0.8rem;">Используется для: основного текста, навигации, подписей, карточек с описанием. Обеспечивает читаемость и современность.</p>
+<div style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-dim);">
+Танец — это вид искусства, в котором художественные образы создаются средствами пластических движений.
+</div>
+</div>
+<div class="code-block">
+<div class="code-header">
+<div class="code-dot cd-red"></div><div class="code-dot cd-yellow"></div><div class="code-dot cd-green"></div>
+<span class="code-lang">HTML — подключение шрифтов</span>
+</div>
+<pre><span class="com">&lt;!-- Предзагрузка для ускорения --&gt;</span>
+<span class="kw">&lt;link</span> <span class="prop">rel</span>=<span class="str">"preconnect"</span> <span class="prop">href</span>=<span class="str">"https://fonts.googleapis.com"</span><span class="kw">&gt;</span>
+<span class="kw">&lt;link</span> <span class="prop">rel</span>=<span class="str">"preconnect"</span> <span class="prop">href</span>=<span class="str">"https://fonts.gstatic.com"</span> <span class="prop">crossorigin</span><span class="kw">&gt;</span>
+<span class="com">&lt;!-- Сами шрифты --&gt;</span>
+<span class="kw">&lt;link</span> <span class="prop">href</span>=<span class="str">"https://fonts.googleapis.com/css2?
+family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
+&amp;family=Manrope:wght@200;300;400;500
+&amp;display=swap"</span> <span class="prop">rel</span>=<span class="str">"stylesheet"</span><span class="kw">&gt;</span></pre>
+</div>
+</section>
+<section id="libraries">
+<div class="section-header">
+<span class="section-num">05</span>
+<h2>Внешние библиотеки</h2>
+<div class="section-line"></div>
+</div>
+<p>Сайт подключает внешние библиотеки через CDN (Content Delivery Network) — готовые серверы, которые хранят популярные файлы и отдают их быстро. Ничего не нужно скачивать или устанавливать — всё подключается через тег <code style="color:var(--blue);">&lt;script src="..."&gt;</code>.</p>
+<div class="lib-grid" style="margin-top:1.5rem;">
+<div class="lib-card">
+<div class="lib-name">GSAP (GreenSock)</div>
+<div class="lib-version">v3.12.2 — gsap.min.js</div>
+<p style="font-size:0.78rem; margin-top:0.75rem;">Главная библиотека анимаций. Управляет всеми движениями на сайте: появление заголовков, карточек, параллакс-эффект на картинках.</p>
+<div class="lib-source">cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js</div>
+</div>
+<div class="lib-card">
+<div class="lib-name">GSAP ScrollTrigger</div>
+<div class="lib-version">v3.12.2 — плагин к GSAP</div>
+<p style="font-size:0.78rem; margin-top:0.75rem;">Плагин для GSAP, который запускает анимации при прокрутке страницы. Без него элементы бы анимировались сразу, а не при появлении в окне.</p>
+<div class="lib-source">cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js</div>
+</div>
+<div class="lib-card">
+<div class="lib-name">Google Fonts</div>
+<div class="lib-version">Cormorant Garamond + Manrope</div>
+<p style="font-size:0.78rem; margin-top:0.75rem;">Сервис бесплатных шрифтов. Подключается через тег <code style="color:var(--blue);">&lt;link&gt;</code> в голове страницы, шрифты грузятся автоматически.</p>
+<div class="lib-source">fonts.googleapis.com</div>
+</div>
+<div class="lib-card">
+<div class="lib-name">Grainy Gradients (noise)</div>
+<div class="lib-version">SVG-текстура шума</div>
+<p style="font-size:0.78rem; margin-top:0.75rem;">Шум-текстура, создающая «плёночный» эффект поверх страницы. Накладывается через CSS как фиксированный элемент с низкой прозрачностью (opacity: 0.05).</p>
+<div class="lib-source">grainy-gradients.vercel.app/noise.svg</div>
+</div>
+</div>
+<div class="code-block" style="margin-top:1.5rem;">
+<div class="code-header">
+<div class="code-dot cd-red"></div><div class="code-dot cd-yellow"></div><div class="code-dot cd-green"></div>
+<span class="code-lang">HTML — подключение библиотек</span>
+</div>
+<pre><span class="com">&lt;!-- Основная библиотека GSAP --&gt;</span>
+<span class="kw">&lt;script</span> <span class="prop">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="com">&lt;!-- Плагин ScrollTrigger --&gt;</span>
+<span class="kw">&lt;script</span> <span class="prop">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"</span><span class="kw">&gt;&lt;/script&gt;</span></pre>
+</div>
+</section>
+<section id="pages">
+<div class="section-header">
+<span class="section-num">06</span>
+<h2>Страницы сайта</h2>
+<div class="section-line"></div>
+</div>
+<div class="page-card">
+<div class="page-card-header">
+<div>
+<div class="page-card-title">index.html</div>
+<div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.25rem;">Главная страница</div>
+</div>
+<div class="page-card-tags">
+<span class="tag tag-green">Главная</span>
+<span class="tag tag-accent">~790 строк</span>
+</div>
+</div>
+<p>Входная точка сайта. Рассказывает о том, что такое танец и почему он важен.</p>
+<table class="info-table" style="margin-top:1rem;">
+<thead><tr><th>Блок</th><th>Описание</th></tr></thead>
+<tbody>
+<tr><td>.header</td><td>Фиксированная шапка с логотипом, навигацией и подписью «Project 2026». Прозрачный до загрузки, появляется через GSAP.</td></tr>
+<tr><td>.hero-title-section</td><td>Заголовок «Танец как способ Самовыражения». Слово «Самовыражения» оформлено outline-эффектом (контур без заливки). Слова появляются снизу при загрузке.</td></tr>
+<tr><td>.marquee</td><td>Бесконечно бегущая строка: «ЭМОЦИИ • РИТМ • СВОБОДА • ...». Создана чистым CSS-анимацией @keyframes.</td></tr>
+<tr><td>.split-layout (×3)</td><td>Три секции: текст слева + картинка справа (или наоборот). Каждая секция появляется при прокрутке.</td></tr>
+<tr><td>.features-section</td><td>6 карточек «Почему танец важен?» (Эмоции, Самовыражение, Сообщество, Здоровье, Культура, Гармония). Каждая карточка содержит SVG-иконку, заголовок, описание.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="page-card">
+<div class="page-card-header">
+<div>
+<div class="page-card-title">directions.html</div>
+<div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.25rem;">Направления танцев</div>
+</div>
+<div class="page-card-tags">
+<span class="tag tag-blue">Слайдер</span>
+<span class="tag tag-accent">~820 строк</span>
+</div>
+</div>
+<p>Страница с обзором стилей танца. Центральный элемент — интерактивный горизонтальный слайдер с карточками.</p>
+<table class="info-table" style="margin-top:1rem;">
+<thead><tr><th>Блок</th><th>Описание</th></tr></thead>
+<tbody>
+<tr><td>.hero-title-section</td><td>Заголовок «Направления». Анимация появления слов идентична главной странице.</td></tr>
+<tr><td>.slider-section</td><td>Горизонтальный слайдер с карточками-направлениями. Кнопки «назад / вперёд», точки-переключатели (dots). Адаптируется под ширину экрана.</td></tr>
+<tr><td>.gallery-item (×7)</td><td>Карточки: Балет, Бальные, Jazz, Contemporary, Modern, Hip-Hop, Breakdance, Народные. Каждая — картинка с подписью и иконкой.</td></tr>
+<tr><td>.directions-info</td><td>Четыре информационные карточки: Классические, Современные, Уличные, Народные — с текстовым описанием каждой группы.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="page-card">
+<div class="page-card-header">
+<div>
+<div class="page-card-title">statistics.html</div>
+<div style="font-size:0.75rem; color:var(--text-dim); margin-top:0.25rem;">Статистика популярности</div>
+</div>
+<div class="page-card-tags">
+<span class="tag tag-purple">Данные</span>
+<span class="tag tag-accent">~725 строк</span>
+</div>
+</div>
+<p>Страница с аналитикой. Показывает, насколько популярен тот или иной стиль в разных возрастных группах.</p>
+<table class="info-table" style="margin-top:1rem;">
+<thead><tr><th>Блок</th><th>Описание</th></tr></thead>
+<tbody>
+<tr><td>Столбчатые диаграммы</td><td>CSS-реализация графиков: высота столбцов задана через CSS-переменные и анимируется при появлении в зоне видимости.</td></tr>
+<tr><td>Горизонтальные полосы</td><td>Второй тип графика — горизонтальные progress-bar'ы с процентами.</td></tr>
+<tr><td>Легенда</td><td>Расшифровка обозначений: Очень часто / Часто / Редко / Крайне редко / Никогда — с SVG-иконками.</td></tr>
+<tr><td>Сводная таблица</td><td>Полная матрица: 10 стилей × 5 возрастных групп. Ячейки окрашены по частоте (4 цвета + серый).</td></tr>
+<tr><td>.conclusions</td><td>Список основных выводов по каждой возрастной группе.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="css">
+<div class="section-header">
+<span class="section-num">07</span>
+<h2>CSS-система</h2>
+<div class="section-line"></div>
+</div>
+<p>CSS написан внутри каждого HTML-файла в теге <code style="color:var(--blue);">&lt;style&gt;</code>. Код одинаковый на всех трёх страницах для общих компонентов (хедер, навигация), а уникальные блоки есть только на своих страницах.</p>
+<div class="divider"></div>
+<h3>Общие компоненты (все 3 страницы)</h3>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">01</div>
+<div>
+<div class="script-title">.header — Шапка сайта</div>
+<div class="script-where">Все страницы</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Фиксируется вверху экрана <code style="color:var(--blue);">position: fixed</code>. Фон почти непрозрачный с размытием: <code style="color:var(--blue);">backdrop-filter: blur(10px)</code>. Содержит логотип слева, навигацию по центру и подпись справа.</p>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">02</div>
+<div>
+<div class="script-title">.nav-menu — Навигация</div>
+<div class="script-where">Все страницы</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Округлая «таблетка» с ссылками. При наведении и у активной ссылки — бежевый фон, тёмный текст. На мобильных — превращается в выпадающее меню, управляемое JS.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre><span class="sel">.nav-menu a:hover</span>, <span class="sel">.nav-menu a.active</span> {
+<span class="prop">color</span>: <span class="val">var(--bg-color)</span>;
+<span class="prop">background</span>: <span class="val">var(--accent)</span>;
+}</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">03</div>
+<div>
+<div class="script-title">.hero-title — Анимированный заголовок</div>
+<div class="script-where">Все страницы</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Слова обёрнуты в <code style="color:var(--blue);">.word</code> с <code style="color:var(--blue);">overflow: hidden</code>. Внутри — <code style="color:var(--blue);">&lt;span&gt;</code> со сдвигом вниз на 100%. GSAP анимирует возврат в нормальное положение при загрузке страницы, создавая эффект «вылета снизу».</p>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">04</div>
+<div>
+<div class="script-title">.outline — Контурный текст</div>
+<div class="script-where">Все страницы (ключевое слово заголовка)</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">CSS-техника: <code style="color:var(--blue);">color: transparent</code> + <code style="color:var(--blue);">-webkit-text-stroke: 1px var(--accent)</code>. Псевдоэлемент <code style="color:var(--blue);">::after</code> дублирует текст с бежевым цветом и появляется при наведении.</p>
+</div>
+<div class="divider"></div>
+<h3>Уникальные элементы</h3>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">05</div>
+<div>
+<div class="script-title">.marquee — Бегущая строка</div>
+<div class="script-where">index.html</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Чистый CSS: текст дублируется дважды, и оба блока бесконечно сдвигаются влево через <code style="color:var(--blue);">@keyframes</code>. Это создаёт иллюзию бесконечной строки без JS.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre><span class="kw">@keyframes</span> <span class="fn">marquee</span> {
+<span class="num">0%</span>   { <span class="prop">transform</span>: <span class="fn">translateX</span>(<span class="num">0</span>); }
+<span class="num">100%</span> { <span class="prop">transform</span>: <span class="fn">translateX</span>(<span class="val">-50%</span>); }
+}</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">06</div>
+<div>
+<div class="script-title">.gallery-item — Карточки слайдера</div>
+<div class="script-where">directions.html</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">При наведении картинка немного масштабируется (<code style="color:var(--blue);">scale(1.03)</code>), а подпись с иконкой плавно выдвигается снизу. Всё через CSS <code style="color:var(--blue);">transition</code>.</p>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">07</div>
+<div>
+<div class="script-title">Диаграммы — statistics.html</div>
+<div class="script-where">statistics.html</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Столбцы и полосы — чистый CSS. Высота/ширина задана через inline-стиль или CSS-переменную, например <code style="color:var(--blue);">height: 65%</code>. Анимация при появлении — через GSAP ScrollTrigger (от 0 до нужного значения).</p>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">08</div>
+<div>
+<div class="script-title">Таблица с цветными ячейками</div>
+<div class="script-where">statistics.html</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Ячейки окрашиваются через CSS-классы: <code style="color:var(--green);">.freq-very-often</code>, <code style="color:var(--blue);">.freq-often</code>, <code style="color:var(--accent);">.freq-rarely</code>, <code style="color:var(--text-dim);">.freq-very-rarely</code>, <code style="color:#ff6b6b;">.freq-never</code>. Каждый класс задаёт цвет фона и текста.</p>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">09</div>
+<div>
+<div class="script-title">Мобильное меню (бургер)</div>
+<div class="script-where">Все страницы</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">На маленьких экранах навигация скрывается, появляется кнопка-гамбургер (три линии). При клике линии превращаются в крестик через CSS-трансформации, навигация выпадает сверху.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre><span class="com">/* Первая линия становится диагональю */</span>
+<span class="sel">.mobile-menu-btn.active span:nth-child(1)</span> {
+<span class="prop">transform</span>: <span class="fn">rotate</span>(<span class="num">45deg</span>) <span class="fn">translate</span>(<span class="num">5px</span>, <span class="num">5px</span>);
+}
+<span class="com">/* Средняя линия исчезает */</span>
+<span class="sel">.mobile-menu-btn.active span:nth-child(2)</span> {
+<span class="prop">opacity</span>: <span class="num">0</span>;
+}
+<span class="com">/* Третья линия — вторая диагональ */</span>
+<span class="sel">.mobile-menu-btn.active span:nth-child(3)</span> {
+<span class="prop">transform</span>: <span class="fn">rotate</span>(<span class="val">-45deg</span>) <span class="fn">translate</span>(<span class="num">5px</span>, <span class="val">-5px</span>);
+}</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">10</div>
+<div>
+<div class="script-title">clamp() — адаптивный шрифт</div>
+<div class="script-where">index.html (заголовок)</div>
+</div>
+</div>
+<p style="font-size:0.8rem;">Функция CSS <code style="color:var(--blue);">clamp(min, preferred, max)</code> автоматически подбирает размер шрифта между минимумом и максимумом в зависимости от ширины экрана. Не нужно писать медиа-запросы для каждого брейкпоинта.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre><span class="sel">.hero-title</span> {
+<span class="prop">font-size</span>: <span class="fn">clamp</span>(<span class="num">2.5rem</span>, <span class="num">6vw</span>, <span class="num">5rem</span>);
+<span class="com">/* мин: 2.5rem | предпочт: 6% ширины | макс: 5rem */</span>
+}</pre>
+</div>
+</div>
+</section>
+<section id="scripts">
+<div class="section-header">
+<span class="section-num">08</span>
+<h2>Скрипты (JavaScript)</h2>
+<div class="section-line"></div>
+</div>
+<p>JavaScript-код расположен в конце каждого HTML-файла внутри тега <code style="color:var(--blue);">&lt;script&gt;</code>. Скрипты написаны с помощью видеоуроков — подробнее в разделе «Авторство».</p>
+<div class="divider"></div>
+<h3>Скрипты, общие для всех страниц</h3>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">01</div>
+<div>
+<div class="script-title">Мобильное меню (бургер)</div>
+<div class="script-where">Все 3 страницы — идентичный код</div>
+</div>
+<span class="tag tag-green" style="margin-left:auto;">Интерактивность</span>
+</div>
+<p style="font-size:0.8rem;">Находит кнопку-гамбургер и меню по их <code style="color:var(--blue);">id</code>. При клике на кнопку добавляет/убирает класс <code style="color:var(--blue);">active</code> — это включает CSS-анимацию крестика и показывает/прячет меню. При клике на любую ссылку в меню — закрывает его.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre><span class="kw">const</span> mobileMenuBtn = document.<span class="fn">getElementById</span>(<span class="str">'mobileMenuBtn'</span>);
+<span class="kw">const</span> navMenu = document.<span class="fn">getElementById</span>(<span class="str">'navMenu'</span>);
+mobileMenuBtn.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, () =&gt; {
+mobileMenuBtn.classList.<span class="fn">toggle</span>(<span class="str">'active'</span>);
+navMenu.classList.<span class="fn">toggle</span>(<span class="str">'active'</span>);
+});
+document.<span class="fn">querySelectorAll</span>(<span class="str">'.nav-menu a'</span>).<span class="fn">forEach</span>(link =&gt; {
+link.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, () =&gt; {
+mobileMenuBtn.classList.<span class="fn">remove</span>(<span class="str">'active'</span>);
+navMenu.classList.<span class="fn">remove</span>(<span class="str">'active'</span>);
+});
+});</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">02</div>
+<div>
+<div class="script-title">Анимация при загрузке страницы (GSAP Timeline)</div>
+<div class="script-where">Все 3 страницы</div>
+</div>
+<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
+</div>
+<p style="font-size:0.8rem;">Запускается когда страница полностью загрузилась (<code style="color:var(--blue);">window.addEventListener('load')</code>). Использует GSAP Timeline — это как режиссёрский сценарий: сначала появляется шапка, затем линия логотипа, потом слова заголовка вылетают снизу одно за другим (stagger — задержка между словами).</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre>window.<span class="fn">addEventListener</span>(<span class="str">'load'</span>, () =&gt; {
+<span class="kw">const</span> tl = gsap.<span class="fn">timeline</span>();
+tl.<span class="fn">to</span>(<span class="str">".header"</span>, { <span class="prop">opacity</span>: <span class="num">1</span>, <span class="prop">duration</span>: <span class="num">0.25</span> })
+.<span class="fn">to</span>(<span class="str">".logo-line"</span>, { <span class="prop">scaleX</span>: <span class="num">1</span>, <span class="prop">duration</span>: <span class="num">0.25</span> }, <span class="str">"-=0.2"</span>)
+.<span class="fn">to</span>(<span class="str">".hero-title .word span"</span>, {
+<span class="prop">y</span>: <span class="num">0</span>,          <span class="com">// вернуть на место из -100%</span>
+<span class="prop">duration</span>: <span class="num">0.4</span>,
+<span class="prop">stagger</span>: <span class="num">0.05</span>, <span class="com">// каждое слово — 50мс позже</span>
+<span class="prop">ease</span>: <span class="str">"power4.out"</span>
+}, <span class="str">"-=0.15"</span>);
+});</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">03</div>
+<div>
+<div class="script-title">Анимация при прокрутке (ScrollTrigger)</div>
+<div class="script-where">Все 3 страницы</div>
+</div>
+<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
+</div>
+<p style="font-size:0.8rem;">Все элементы с классом <code style="color:var(--blue);">.reveal-text</code> появляются плавно, когда попадают в зону видимости экрана. ScrollTrigger отслеживает позицию каждого блока и запускает анимацию в нужный момент.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre>gsap.<span class="fn">registerPlugin</span>(ScrollTrigger);
+document.<span class="fn">querySelectorAll</span>(<span class="str">'.reveal-text'</span>).<span class="fn">forEach</span>(block =&gt; {
+gsap.<span class="fn">from</span>(block, {
+scrollTrigger: {
+trigger: block,
+start: <span class="str">"top 80%"</span>, <span class="com">// когда верх блока = 80% высоты экрана</span>
+},
+<span class="prop">y</span>: <span class="num">30</span>,       <span class="com">// начать с 30px ниже</span>
+<span class="prop">opacity</span>: <span class="num">0</span>,  <span class="com">// начать прозрачным</span>
+<span class="prop">duration</span>: <span class="num">0.4</span>,
+<span class="prop">ease</span>: <span class="str">"power3.out"</span>
+});
+});</pre>
+</div>
+</div>
+<div class="divider"></div>
+<h3>Уникальные скрипты страниц</h3>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">04</div>
+<div>
+<div class="script-title">Параллакс-эффект на картинках</div>
+<div class="script-where">index.html</div>
+</div>
+<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
+</div>
+<p style="font-size:0.8rem;">При прокрутке картинки слегка «плывут» с разной скоростью — это создаёт глубину (параллакс). Реализовано через <code style="color:var(--blue);">scrub: 0.5</code> — анимация «прилипает» к скроллу с небольшим запаздыванием.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre>document.<span class="fn">querySelectorAll</span>(<span class="str">'.reveal-img'</span>).<span class="fn">forEach</span>(wrapper =&gt; {
+gsap.<span class="fn">to</span>(wrapper.<span class="fn">querySelector</span>(<span class="str">'img'</span>), {
+scrollTrigger: {
+trigger: wrapper,
+start: <span class="str">"top 85%"</span>,
+end: <span class="str">"bottom 60%"</span>,
+scrub: <span class="num">0.5</span> <span class="com">// «прилипание» к прокрутке</span>
+},
+<span class="prop">scale</span>: <span class="num">1</span>,
+<span class="prop">y</span>: <span class="num">0</span>
+});
+});</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">05</div>
+<div>
+<div class="script-title">Слайдер карточек (directions.html)</div>
+<div class="script-where">directions.html — самый сложный скрипт</div>
+</div>
+<span class="tag tag-orange" style="margin-left:auto;">Сложный</span>
+</div>
+<p style="font-size:0.8rem;">Полностью самописный слайдер без готовых библиотек. Работает так:</p>
+<p style="font-size:0.78rem; margin-top:0.5rem; color:var(--text-dim);">
+1. <strong style="color:var(--white);">initSlider()</strong> — считает ширину карточки и контейнера, определяет сколько карточек видно, создаёт нужное количество точек-навигаторов.<br>
+2. <strong style="color:var(--white);">updateSlider()</strong> — сдвигает «трек» через <code style="color:var(--blue);">translateX</code>, обновляет состояние кнопок и активную точку.<br>
+3. <strong style="color:var(--white);">goToSlide(index)</strong> — прыжок к конкретному слайду по клику на точку.<br>
+4. При изменении размера окна — пересчитывает всё заново (debounce 250мс).
+</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre><span class="kw">function</span> <span class="fn">updateSlider</span>() {
+<span class="kw">const</span> offset = currentIndex * (itemWidth + gap);
+track.style.transform = <span class="str">`translateX(-${offset}px)`</span>;
+dots.<span class="fn">forEach</span>((dot, index) =&gt; {
+dot.classList.<span class="fn">toggle</span>(<span class="str">'active'</span>, index === currentIndex);
+});
+prevBtn.disabled = currentIndex === <span class="num">0</span>;
+nextBtn.disabled = currentIndex &gt;= maxIndex;
+}</pre>
+</div>
+</div>
+<div class="script-card">
+<div class="script-card-header">
+<div class="script-num">06</div>
+<div>
+<div class="script-title">Анимация выводов списком</div>
+<div class="script-where">statistics.html</div>
+</div>
+<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
+</div>
+<p style="font-size:0.8rem;">Пункты выводов в конце страницы статистики появляются не все сразу, а по очереди, выезжая слева — эффект «последовательного перечисления». Создаётся параметром <code style="color:var(--blue);">stagger: 0.05</code>.</p>
+<div class="code-block" style="margin-top:0.75rem;">
+<pre>gsap.<span class="fn">from</span>(<span class="str">".conclusions li"</span>, {
+scrollTrigger: { trigger: <span class="str">".conclusions"</span>, start: <span class="str">"top 80%"</span> },
+<span class="prop">x</span>: <span class="val">-30</span>,       <span class="com">// начать 30px левее</span>
+<span class="prop">opacity</span>: <span class="num">0</span>,
+<span class="prop">duration</span>: <span class="num">0.4</span>,
+<span class="prop">stagger</span>: <span class="num">0.05</span>, <span class="com">// каждый пункт — 50мс позже</span>
+<span class="prop">ease</span>: <span class="str">"power3.out"</span>
+});</pre>
+</div>
+</div>
+</section>
+<section id="images">
+<div class="section-header">
+<span class="section-num">09</span>
+<h2>Изображения</h2>
+<div class="section-line"></div>
+</div>
+<p>Все изображения — это фотографии разных стилей и моментов танца. В коде у каждого <code style="color:var(--blue);">&lt;img&gt;</code> есть атрибут <code style="color:var(--blue);">onerror</code> — запасной URL с Unsplash на случай, если файл не будет найден на сервере.</p>
+<div class="img-grid" style="margin-top:1.5rem;">
+<div class="img-item">
+<div class="img-filename">1.jpg</div>
+<div class="img-desc">Групповой современный танец с голубыми шарами. Белые костюмы, сцена с подсветкой.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-blue">index.html</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">2.jpg</div>
+<div class="img-desc">Contemporary: группа танцоров в бежевых костюмах, захваты, тёплое освещение.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-blue">index.html</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">3.jpg</div>
+<div class="img-desc">Современный танец: группа в чёрном, руки вверх, драматический свет.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-blue">index.html</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">bal.jpg</div>
+<div class="img-desc">Бальные танцы: пара (дети) в чёрных костюмах, ч/б фото, номер участника 358.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">balet.jpg</div>
+<div class="img-desc">Силуэт балерины: пачка, пуанты, белый фон, ч/б стиль.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">break.jpg</div>
+<div class="img-desc">Брейкданс: стойка на одной руке с прямыми ногами, ч/б.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">hop.jpg</div>
+<div class="img-desc">Hip-hop: силуэт танцора в тёмном свете, кроссовки, брейк-позиция.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">jazz.jpg</div>
+<div class="img-desc">Джаз-фанк: силуэт девушки с развевающимися волосами на ч/б фоне.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">kontemp.jpg</div>
+<div class="img-desc">Контемпорари: группа поднимает девушку вверх, ч/б.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">modern.jpg</div>
+<div class="img-desc">Модерн: акробатическая поддержка группы, одна нога высоко, ч/б.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+<div class="img-item">
+<div class="img-filename">narod.jpg</div>
+<div class="img-desc">Народные танцы: группа девушек в национальных костюмах кружатся на сцене, ч/б.</div>
+<div style="margin-top:0.5rem;"><span class="tag tag-orange">directions</span></div>
+</div>
+</div>
+</section>
+<section id="glossary">
+<div class="section-header">
+<span class="section-num">10</span>
+<h2>Глоссарий терминов</h2>
+<div class="section-line"></div>
+</div>
+<p>Основные технические понятия и технологии, использованные в проекте, простыми словами.</p>
+<div class="card-grid" style="margin-top:1.5rem;">
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-blue">Инфраструктура</span></div>
+<h3>CDN</h3>
+<p style="font-size:0.8rem;"><strong>Content Delivery Network</strong> — сеть серверов по всему миру. Позволяет загружать файлы (скрипты, шрифты) не с моего компьютера, а с ближайшего к пользователю мощного сервера, что ускоряет работу сайта.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-purple">Анимация</span></div>
+<h3>GSAP</h3>
+<p style="font-size:0.8rem;"><strong>GreenSock Animation Platform</strong> — профессиональный «движок» для создания анимаций в вебе. Позволяет делать сложные движения элементов плавными и контролируемыми.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-orange">Логика</span></div>
+<h3>DOM</h3>
+<p style="font-size:0.8rem;"><strong>Document Object Model</strong> — представление страницы в виде «дерева» объектов. JavaScript использует его, чтобы находить элементы (например, кнопку меню) и менять их свойства.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-green">Дизайн</span></div>
+<h3>Flexbox / Grid</h3>
+<p style="font-size:0.8rem;">Современные технологии CSS для расположения элементов. <strong>Flexbox</strong> идеален для строк и меню, а <strong>Grid</strong> — для сложных сеток и макетов страниц.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-accent">Эффект</span></div>
+<h3>Glassmorphism</h3>
+<p style="font-size:0.8rem;">Стиль «матового стекла». Создается с помощью <code>backdrop-filter: blur()</code>, когда фон за элементом размывается, создавая ощущение глубины.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-blue">Текст</span></div>
+<h3>Web Fonts</h3>
+<p style="font-size:0.8rem;">Шрифты, которые загружаются из интернета (например, Google Fonts). Они позволяют сайту выглядеть одинаково красиво на всех устройствах, даже если этих шрифтов нет в системе пользователя.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-purple">Метод</span></div>
+<h3>Stagger</h3>
+<p style="font-size:0.8rem;">Эффект «каскадного» появления элементов. Когда группа объектов (например, слова в заголовке) анимируется не одновременно, а с небольшой задержкой друг за другом.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-orange">Адаптив</span></div>
+<h3>Media Queries</h3>
+<p style="font-size:0.8rem;">«Медиа-запросы» в CSS. Позволяют сайту менять свой вид (цвета, размеры, скрывать блоки) в зависимости от размера экрана — смартфона, планшета или монитора.</p>
+</div>
+</div>
+</section>
+<section id="authorship">
+<div class="section-header">
+<span class="section-num">11</span>
+<h2>Авторство</h2>
+<div class="section-line"></div>
+</div>
+<div class="tutorials-note">
+<h3>✦ О помощи видеоуроков в проекте</h3>
+<p>Скрипты на JavaScript (анимации, слайдер, мобильное меню) были написаны с помощью видеоуроков, поскольку автор не изучала программирование. Это честный и современный подход — видеоуроки выступали инструментом реализации, как фотоаппарат для фотографа.</p>
+<p>Весь остальной контент — текст, структура, концепция, дизайн-решения, выбор изображений, тема и её раскрытие — написаны и созданы автором самостоятельно.</p>
+</div>
+<div class="card-grid" style="margin-top:1.5rem;">
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-green">Написано автором</span></div>
+<h3>Собственная работа</h3>
+<p style="font-size:0.8rem;">Все тексты на страницах, тема и её раскрытие, концепция сайта, структура страниц, HTML-разметка, CSS-стили, подбор фотографий, статистические данные и выводы.</p>
+</div>
+<div class="card">
+<div style="margin-bottom:0.75rem;"><span class="tag tag-purple">При помощи видеоуроков</span></div>
+<h3>JavaScript-скрипты</h3>
+<p style="font-size:0.8rem;">Анимации GSAP (загрузка страницы, появление при скролле, параллакс), слайдер направлений с навигацией и адаптивностью, мобильное бургер-меню.</p>
+</div>
+</div>
+<div class="divider"></div>
+<h3>Краткий итог по технологиям</h3>
+<table class="info-table" style="margin-top:1rem;">
+<thead><tr><th>Технология</th><th>Назначение</th><th>Уровень</th></tr></thead>
+<tbody>
+<tr>
+<td>HTML5</td>
+<td>Структура и содержимое всех трёх страниц</td>
+<td><span class="tag tag-green">Автор</span></td>
+</tr>
+<tr>
+<td>CSS3</td>
+<td>Оформление, цвета, анимации (marquee, hover, transitions)</td>
+<td><span class="tag tag-green">Автор</span></td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>Интерактивность: меню, слайдер, GSAP-анимации</td>
+<td><span class="tag tag-purple">С видеоуроками</span></td>
+</tr>
+<tr>
+<td>GSAP 3.12.2</td>
+<td>Библиотека профессиональных анимаций</td>
+<td><span class="tag tag-accent">CDN</span></td>
+</tr>
+<tr>
+<td>Google Fonts</td>
+<td>Шрифты Cormorant Garamond и Manrope</td>
+<td><span class="tag tag-accent">CDN</span></td>
+</tr>
+<tr>
+<td>SVG-иконки</td>
+<td>Иконки в карточках и навигации (встроены inline в HTML)</td>
+<td><span class="tag tag-green">Автор</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</main>
+<a href="#" class="scroll-top">↑</a>
+<script>
+const links = document.querySelectorAll('.sidebar a');
+const sections = document.querySelectorAll('section[id]');
+const sidebar = document.querySelector('.sidebar');
+const mobileToggle = document.getElementById('mobileToggle');
+mobileToggle.addEventListener('click', () => {
+sidebar.classList.toggle('active');
+mobileToggle.classList.toggle('active');
+});
+links.forEach(link => {
+link.addEventListener('click', () => {
+if (window.innerWidth <= 800) {
+sidebar.classList.remove('active');
+mobileToggle.classList.remove('active');
+}
+});
+});
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+links.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === '#' + entry.target.id) {
+link.classList.add('active');
+}
+});
+}
+});
+}, { threshold: 0.3 });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
