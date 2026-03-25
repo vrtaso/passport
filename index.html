@@ -63,18 +63,13 @@ font-weight: 300;
 letter-spacing: 0.2em;
 text-transform: uppercase;
 color: var(--white);
-transition: letter-spacing 0.5s ease;
 cursor: pointer;
-}
-.sidebar-logo-title:hover {
-letter-spacing: 0.3em;
 }
 .sidebar-logo-sub {
 font-size: 0.6rem;
 letter-spacing: 0.25em;
 text-transform: uppercase;
 color: var(--accent);
-margin-top: 0.25rem;
 }
 .sidebar-label {
 font-size: 0.55rem;
@@ -94,7 +89,6 @@ font-size: 0.75rem;
 color: var(--text-dim);
 text-decoration: none;
 letter-spacing: 0.05em;
-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 border-left: 2px solid transparent;
 position: relative;
 }
@@ -108,7 +102,6 @@ background: var(--accent);
 border-radius: 50%;
 opacity: 0;
 transform: scale(0);
-transition: all 0.3s ease;
 }
 .sidebar a:hover::after, .sidebar a.active::after {
 opacity: 1;
@@ -117,17 +110,12 @@ transform: scale(1);
 .sidebar a:hover, .sidebar a.active {
 color: var(--accent);
 border-left-color: var(--accent);
-background: rgba(212,197,176,0.05);
 }
 .sidebar a .dot {
 width: 6px; height: 6px;
 border-radius: 50%;
 background: var(--text-dim);
 flex-shrink: 0;
-transition: background 0.2s;
-}
-.sidebar a:hover .dot, .sidebar a.active .dot {
-background: var(--accent);
 }
 main {
 margin-left: 230px;
@@ -153,22 +141,11 @@ font-size: 0.65rem;
 letter-spacing: 0.2em;
 text-transform: uppercase;
 color: var(--accent);
-margin-bottom: 2rem;
-transition: all 0.3s ease;
-}
-.badge:hover {
-background: var(--accent-dim);
-color: var(--white);
 }
 .badge-dot {
 width: 6px; height: 6px;
 border-radius: 50%;
 background: var(--green);
-animation: pulse 2s infinite;
-}
-@keyframes pulse {
-0%, 100% { opacity: 1; }
-50% { opacity: 0.3; }
 }
 .hero h1 {
 font-family: 'Cormorant Garamond', serif;
@@ -254,12 +231,6 @@ border: 1px solid var(--border);
 border-radius: 8px;
 padding: 1.5rem;
 margin-bottom: 1rem;
-transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-transform: translateY(-5px);
-border-color: var(--accent-dim);
-box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 .card-grid {
 display: grid;
@@ -882,18 +853,6 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <p>Сайт подключает внешние библиотеки через CDN (Content Delivery Network) — готовые серверы, которые хранят популярные файлы и отдают их быстро. Ничего не нужно скачивать или устанавливать — всё подключается через тег <code style="color:var(--blue);">&lt;script src="..."&gt;</code>.</p>
 <div class="lib-grid" style="margin-top:1.5rem;">
 <div class="lib-card">
-<div class="lib-name">GSAP (GreenSock)</div>
-<div class="lib-version">v3.12.2 — gsap.min.js</div>
-<p style="font-size:0.78rem; margin-top:0.75rem;">Главная библиотека анимаций. Управляет всеми движениями на сайте: появление заголовков, карточек, параллакс-эффект на картинках.</p>
-<div class="lib-source">cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js</div>
-</div>
-<div class="lib-card">
-<div class="lib-name">GSAP ScrollTrigger</div>
-<div class="lib-version">v3.12.2 — плагин к GSAP</div>
-<p style="font-size:0.78rem; margin-top:0.75rem;">Плагин для GSAP, который запускает анимации при прокрутке страницы. Без него элементы бы анимировались сразу, а не при появлении в окне.</p>
-<div class="lib-source">cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js</div>
-</div>
-<div class="lib-card">
 <div class="lib-name">Google Fonts</div>
 <div class="lib-version">Cormorant Garamond + Manrope</div>
 <p style="font-size:0.78rem; margin-top:0.75rem;">Сервис бесплатных шрифтов. Подключается через тег <code style="color:var(--blue);">&lt;link&gt;</code> в голове страницы, шрифты грузятся автоматически.</p>
@@ -906,16 +865,7 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <div class="lib-source">grainy-gradients.vercel.app/noise.svg</div>
 </div>
 </div>
-<div class="code-block" style="margin-top:1.5rem;">
-<div class="code-header">
-<div class="code-dot cd-red"></div><div class="code-dot cd-yellow"></div><div class="code-dot cd-green"></div>
-<span class="code-lang">HTML — подключение библиотек</span>
-</div>
-<pre><span class="com">&lt;!-- Основная библиотека GSAP --&gt;</span>
-<span class="kw">&lt;script</span> <span class="prop">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"</span><span class="kw">&gt;&lt;/script&gt;</span>
-<span class="com">&lt;!-- Плагин ScrollTrigger --&gt;</span>
-<span class="kw">&lt;script</span> <span class="prop">src</span>=<span class="str">"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"</span><span class="kw">&gt;&lt;/script&gt;</span></pre>
-</div>
+<p style="font-size:0.8rem; margin-top:1rem; color:var(--text-dim);">Сторонние JavaScript-библиотеки анимации (GSAP) в текущей версии сайта не используются. Все анимации реализованы средствами CSS.</p>
 </section>
 <section id="pages">
 <div class="section-header">
@@ -931,17 +881,17 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 </div>
 <div class="page-card-tags">
 <span class="tag tag-green">Главная</span>
-<span class="tag tag-accent">~790 строк</span>
+<span class="tag tag-accent">~730 строк</span>
 </div>
 </div>
 <p>Входная точка сайта. Рассказывает о том, что такое танец и почему он важен.</p>
 <table class="info-table" style="margin-top:1rem;">
 <thead><tr><th>Блок</th><th>Описание</th></tr></thead>
 <tbody>
-<tr><td>.header</td><td>Фиксированная шапка с логотипом, навигацией и подписью «Project 2026». Прозрачный до загрузки, появляется через GSAP.</td></tr>
-<tr><td>.hero-title-section</td><td>Заголовок «Танец как способ Самовыражения». Слово «Самовыражения» оформлено outline-эффектом (контур без заливки). Слова появляются снизу при загрузке.</td></tr>
+<tr><td>.header</td><td>Фиксированная шапка с логотипом, навигацией и подписью «Project 2026». Всегда видима, фон — полупрозрачный с размытием.</td></tr>
+<tr><td>.hero-title-section</td><td>Заголовок «Танец как способ Самовыражения». Слово «Самовыражения» оформлено outline-эффектом (контур без заливки). Типографика подчеркивает элегантность и современность стиля.</td></tr>
 <tr><td>.marquee</td><td>Бесконечно бегущая строка: «ЭМОЦИИ • РИТМ • СВОБОДА • ...». Создана чистым CSS-анимацией @keyframes.</td></tr>
-<tr><td>.split-layout (×3)</td><td>Три секции: текст слева + картинка справа (или наоборот). Каждая секция появляется при прокрутке.</td></tr>
+<tr><td>.split-layout (×3)</td><td>Три секции: текст слева + картинка справа (или наоборот). Используется минималистичная верстка для концентрации внимания на контенте.</td></tr>
 <tr><td>.features-section</td><td>6 карточек «Почему танец важен?» (Эмоции, Самовыражение, Сообщество, Здоровье, Культура, Гармония). Каждая карточка содержит SVG-иконку, заголовок, описание.</td></tr>
 </tbody>
 </table>
@@ -954,16 +904,16 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 </div>
 <div class="page-card-tags">
 <span class="tag tag-blue">Слайдер</span>
-<span class="tag tag-accent">~820 строк</span>
+<span class="tag tag-accent">~790 строк</span>
 </div>
 </div>
 <p>Страница с обзором стилей танца. Центральный элемент — интерактивный горизонтальный слайдер с карточками.</p>
 <table class="info-table" style="margin-top:1rem;">
 <thead><tr><th>Блок</th><th>Описание</th></tr></thead>
 <tbody>
-<tr><td>.hero-title-section</td><td>Заголовок «Направления». Анимация появления слов идентична главной странице.</td></tr>
+<tr><td>.hero-title-section</td><td>Заголовок страницы. Использует элегантную типографику и контурный эффект для акцентных слов.</td></tr>
 <tr><td>.slider-section</td><td>Горизонтальный слайдер с карточками-направлениями. Кнопки «назад / вперёд», точки-переключатели (dots). Адаптируется под ширину экрана.</td></tr>
-<tr><td>.gallery-item (×7)</td><td>Карточки: Балет, Бальные, Jazz, Contemporary, Modern, Hip-Hop, Breakdance, Народные. Каждая — картинка с подписью и иконкой.</td></tr>
+<tr><td>.gallery-item (×7)</td><td>Карточки: Балет, Бальные, Jazz, Contemporary, Modern, Hip-Hop, Breakdance, Народные. Каждая — изображение в ч/б стиле с подписью.</td></tr>
 <tr><td>.directions-info</td><td>Четыре информационные карточки: Классические, Современные, Уличные, Народные — с текстовым описанием каждой группы.</td></tr>
 </tbody>
 </table>
@@ -976,14 +926,14 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 </div>
 <div class="page-card-tags">
 <span class="tag tag-purple">Данные</span>
-<span class="tag tag-accent">~725 строк</span>
+<span class="tag tag-accent">~680 строк</span>
 </div>
 </div>
 <p>Страница с аналитикой. Показывает, насколько популярен тот или иной стиль в разных возрастных группах.</p>
 <table class="info-table" style="margin-top:1rem;">
 <thead><tr><th>Блок</th><th>Описание</th></tr></thead>
 <tbody>
-<tr><td>Столбчатые диаграммы</td><td>CSS-реализация графиков: высота столбцов задана через CSS-переменные и анимируется при появлении в зоне видимости.</td></tr>
+<tr><td>Столбчатые диаграммы</td><td>CSS-реализация графиков: высота столбцов задана через CSS-переменные для наглядности.</td></tr>
 <tr><td>Горизонтальные полосы</td><td>Второй тип графика — горизонтальные progress-bar'ы с процентами.</td></tr>
 <tr><td>Легенда</td><td>Расшифровка обозначений: Очень часто / Часто / Редко / Крайне редко / Никогда — с SVG-иконками.</td></tr>
 <tr><td>Сводная таблица</td><td>Полная матрица: 10 стилей × 5 возрастных групп. Ячейки окрашены по частоте (4 цвета + серый).</td></tr>
@@ -1031,11 +981,11 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <div class="script-card-header">
 <div class="script-num">03</div>
 <div>
-<div class="script-title">.hero-title — Анимированный заголовок</div>
+<div class="script-title">.hero-title — Стилизованный заголовок</div>
 <div class="script-where">Все страницы</div>
 </div>
 </div>
-<p style="font-size:0.8rem;">Слова обёрнуты в <code style="color:var(--blue);">.word</code> с <code style="color:var(--blue);">overflow: hidden</code>. Внутри — <code style="color:var(--blue);">&lt;span&gt;</code> со сдвигом вниз на 100%. GSAP анимирует возврат в нормальное положение при загрузке страницы, создавая эффект «вылета снизу».</p>
+<p style="font-size:0.8rem;">Заголовки используют шрифт <code style="color:var(--blue);">Cormorant Garamond</code> и адаптивный размер через <code style="color:var(--blue);">clamp()</code>. Это обеспечивает отличную читаемость и визуальный акцент без необходимости в сложных анимациях появления.</p>
 </div>
 <div class="script-card">
 <div class="script-card-header">
@@ -1045,7 +995,7 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <div class="script-where">Все страницы (ключевое слово заголовка)</div>
 </div>
 </div>
-<p style="font-size:0.8rem;">CSS-техника: <code style="color:var(--blue);">color: transparent</code> + <code style="color:var(--blue);">-webkit-text-stroke: 1px var(--accent)</code>. Псевдоэлемент <code style="color:var(--blue);">::after</code> дублирует текст с бежевым цветом и появляется при наведении.</p>
+<p style="font-size:0.8rem;">CSS-техника: <code style="color:var(--blue);">color: transparent</code> + <code style="color:var(--blue);">-webkit-text-stroke: 1px var(--accent)</code>. Позволяет выделить ключевые смысловые слова, сохраняя легкость дизайна.</p>
 </div>
 <div class="divider"></div>
 <h3>Уникальные элементы</h3>
@@ -1073,7 +1023,7 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <div class="script-where">directions.html</div>
 </div>
 </div>
-<p style="font-size:0.8rem;">При наведении картинка немного масштабируется (<code style="color:var(--blue);">scale(1.03)</code>), а подпись с иконкой плавно выдвигается снизу. Всё через CSS <code style="color:var(--blue);">transition</code>.</p>
+<p style="font-size:0.8rem;">Карточки выполнены в минималистичном стиле с использованием ч/б изображений и элегантных подписей, что подчеркивает общую эстетику проекта.</p>
 </div>
 <div class="script-card">
 <div class="script-card-header">
@@ -1083,7 +1033,7 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <div class="script-where">statistics.html</div>
 </div>
 </div>
-<p style="font-size:0.8rem;">Столбцы и полосы — чистый CSS. Высота/ширина задана через inline-стиль или CSS-переменную, например <code style="color:var(--blue);">height: 65%</code>. Анимация при появлении — через GSAP ScrollTrigger (от 0 до нужного значения).</p>
+<p style="font-size:0.8rem;">Столбцы и полосы реализованы на чистом CSS. Высота/ширина задана через значения в HTML, что делает визуализацию данных быстрой и эффективной без использования внешних библиотек.</p>
 </div>
 <div class="script-card">
 <div class="script-card-header">
@@ -1142,7 +1092,7 @@ family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400
 <h2>Скрипты (JavaScript)</h2>
 <div class="section-line"></div>
 </div>
-<p>JavaScript-код расположен в конце каждого HTML-файла внутри тега <code style="color:var(--blue);">&lt;script&gt;</code>. Скрипты написаны с помощью видеоуроков — подробнее в разделе «Авторство».</p>
+<p>JavaScript-код расположен в конце каждого HTML-файла внутри тега <code style="color:var(--blue);">&lt;script&gt;</code>. В текущей версии сайта используется необходимый минимум JS — только для интерактивных элементов (слайдер, мобильное меню), что обеспечивает максимальную скорость работы.</p>
 <div class="divider"></div>
 <h3>Скрипты, общие для всех страниц</h3>
 <div class="script-card">
@@ -1170,89 +1120,14 @@ navMenu.classList.<span class="fn">remove</span>(<span class="str">'active'</spa
 });</pre>
 </div>
 </div>
-<div class="script-card">
-<div class="script-card-header">
-<div class="script-num">02</div>
-<div>
-<div class="script-title">Анимация при загрузке страницы (GSAP Timeline)</div>
-<div class="script-where">Все 3 страницы</div>
-</div>
-<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
-</div>
-<p style="font-size:0.8rem;">Запускается когда страница полностью загрузилась (<code style="color:var(--blue);">window.addEventListener('load')</code>). Использует GSAP Timeline — это как режиссёрский сценарий: сначала появляется шапка, затем линия логотипа, потом слова заголовка вылетают снизу одно за другим (stagger — задержка между словами).</p>
-<div class="code-block" style="margin-top:0.75rem;">
-<pre>window.<span class="fn">addEventListener</span>(<span class="str">'load'</span>, () =&gt; {
-<span class="kw">const</span> tl = gsap.<span class="fn">timeline</span>();
-tl.<span class="fn">to</span>(<span class="str">".header"</span>, { <span class="prop">opacity</span>: <span class="num">1</span>, <span class="prop">duration</span>: <span class="num">0.25</span> })
-.<span class="fn">to</span>(<span class="str">".logo-line"</span>, { <span class="prop">scaleX</span>: <span class="num">1</span>, <span class="prop">duration</span>: <span class="num">0.25</span> }, <span class="str">"-=0.2"</span>)
-.<span class="fn">to</span>(<span class="str">".hero-title .word span"</span>, {
-<span class="prop">y</span>: <span class="num">0</span>,          <span class="com">// вернуть на место из -100%</span>
-<span class="prop">duration</span>: <span class="num">0.4</span>,
-<span class="prop">stagger</span>: <span class="num">0.05</span>, <span class="com">// каждое слово — 50мс позже</span>
-<span class="prop">ease</span>: <span class="str">"power4.out"</span>
-}, <span class="str">"-=0.15"</span>);
-});</pre>
-</div>
-</div>
-<div class="script-card">
-<div class="script-card-header">
-<div class="script-num">03</div>
-<div>
-<div class="script-title">Анимация при прокрутке (ScrollTrigger)</div>
-<div class="script-where">Все 3 страницы</div>
-</div>
-<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
-</div>
-<p style="font-size:0.8rem;">Все элементы с классом <code style="color:var(--blue);">.reveal-text</code> появляются плавно, когда попадают в зону видимости экрана. ScrollTrigger отслеживает позицию каждого блока и запускает анимацию в нужный момент.</p>
-<div class="code-block" style="margin-top:0.75rem;">
-<pre>gsap.<span class="fn">registerPlugin</span>(ScrollTrigger);
-document.<span class="fn">querySelectorAll</span>(<span class="str">'.reveal-text'</span>).<span class="fn">forEach</span>(block =&gt; {
-gsap.<span class="fn">from</span>(block, {
-scrollTrigger: {
-trigger: block,
-start: <span class="str">"top 80%"</span>, <span class="com">// когда верх блока = 80% высоты экрана</span>
-},
-<span class="prop">y</span>: <span class="num">30</span>,       <span class="com">// начать с 30px ниже</span>
-<span class="prop">opacity</span>: <span class="num">0</span>,  <span class="com">// начать прозрачным</span>
-<span class="prop">duration</span>: <span class="num">0.4</span>,
-<span class="prop">ease</span>: <span class="str">"power3.out"</span>
-});
-});</pre>
-</div>
-</div>
 <div class="divider"></div>
 <h3>Уникальные скрипты страниц</h3>
 <div class="script-card">
 <div class="script-card-header">
-<div class="script-num">04</div>
-<div>
-<div class="script-title">Параллакс-эффект на картинках</div>
-<div class="script-where">index.html</div>
-</div>
-<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
-</div>
-<p style="font-size:0.8rem;">При прокрутке картинки слегка «плывут» с разной скоростью — это создаёт глубину (параллакс). Реализовано через <code style="color:var(--blue);">scrub: 0.5</code> — анимация «прилипает» к скроллу с небольшим запаздыванием.</p>
-<div class="code-block" style="margin-top:0.75rem;">
-<pre>document.<span class="fn">querySelectorAll</span>(<span class="str">'.reveal-img'</span>).<span class="fn">forEach</span>(wrapper =&gt; {
-gsap.<span class="fn">to</span>(wrapper.<span class="fn">querySelector</span>(<span class="str">'img'</span>), {
-scrollTrigger: {
-trigger: wrapper,
-start: <span class="str">"top 85%"</span>,
-end: <span class="str">"bottom 60%"</span>,
-scrub: <span class="num">0.5</span> <span class="com">// «прилипание» к прокрутке</span>
-},
-<span class="prop">scale</span>: <span class="num">1</span>,
-<span class="prop">y</span>: <span class="num">0</span>
-});
-});</pre>
-</div>
-</div>
-<div class="script-card">
-<div class="script-card-header">
-<div class="script-num">05</div>
+<div class="script-num">02</div>
 <div>
 <div class="script-title">Слайдер карточек (directions.html)</div>
-<div class="script-where">directions.html — самый сложный скрипт</div>
+<div class="script-where">directions.html — единственный сложный скрипт</div>
 </div>
 <span class="tag tag-orange" style="margin-left:auto;">Сложный</span>
 </div>
@@ -1273,27 +1148,6 @@ dot.classList.<span class="fn">toggle</span>(<span class="str">'active'</span>, 
 prevBtn.disabled = currentIndex === <span class="num">0</span>;
 nextBtn.disabled = currentIndex &gt;= maxIndex;
 }</pre>
-</div>
-</div>
-<div class="script-card">
-<div class="script-card-header">
-<div class="script-num">06</div>
-<div>
-<div class="script-title">Анимация выводов списком</div>
-<div class="script-where">statistics.html</div>
-</div>
-<span class="tag tag-purple" style="margin-left:auto;">GSAP</span>
-</div>
-<p style="font-size:0.8rem;">Пункты выводов в конце страницы статистики появляются не все сразу, а по очереди, выезжая слева — эффект «последовательного перечисления». Создаётся параметром <code style="color:var(--blue);">stagger: 0.05</code>.</p>
-<div class="code-block" style="margin-top:0.75rem;">
-<pre>gsap.<span class="fn">from</span>(<span class="str">".conclusions li"</span>, {
-scrollTrigger: { trigger: <span class="str">".conclusions"</span>, start: <span class="str">"top 80%"</span> },
-<span class="prop">x</span>: <span class="val">-30</span>,       <span class="com">// начать 30px левее</span>
-<span class="prop">opacity</span>: <span class="num">0</span>,
-<span class="prop">duration</span>: <span class="num">0.4</span>,
-<span class="prop">stagger</span>: <span class="num">0.05</span>, <span class="com">// каждый пункт — 50мс позже</span>
-<span class="prop">ease</span>: <span class="str">"power3.out"</span>
-});</pre>
 </div>
 </div>
 </section>
@@ -1373,12 +1227,12 @@ scrollTrigger: { trigger: <span class="str">".conclusions"</span>, start: <span 
 <div class="card">
 <div style="margin-bottom:0.75rem;"><span class="tag tag-blue">Инфраструктура</span></div>
 <h3>CDN</h3>
-<p style="font-size:0.8rem;"><strong>Content Delivery Network</strong> — сеть серверов по всему миру. Позволяет загружать файлы (скрипты, шрифты) не с моего компьютера, а с ближайшего к пользователю мощного сервера, что ускоряет работу сайта.</p>
+<p style="font-size:0.8rem;"><strong>Content Delivery Network</strong> — сеть серверов по всему миру. Позволяет загружать файлы (шрифты) не с моего компьютера, а с ближайшего к пользователю мощного сервера, что ускоряет работу сайта.</p>
 </div>
 <div class="card">
-<div style="margin-bottom:0.75rem;"><span class="tag tag-purple">Анимация</span></div>
-<h3>GSAP</h3>
-<p style="font-size:0.8rem;"><strong>GreenSock Animation Platform</strong> — профессиональный «движок» для создания анимаций в вебе. Позволяет делать сложные движения элементов плавными и контролируемыми.</p>
+<div style="margin-bottom:0.75rem;"><span class="tag tag-green">Дизайн</span></div>
+<h3>@keyframes</h3>
+<p style="font-size:0.8rem;">CSS-инструмент для создания анимаций. Описывает «сценарий» движения: начальное состояние (<code>from</code>) и конечное (<code>to</code>). Браузер сам плавно строит переход между ними.</p>
 </div>
 <div class="card">
 <div style="margin-bottom:0.75rem;"><span class="tag tag-orange">Логика</span></div>
@@ -1402,8 +1256,8 @@ scrollTrigger: { trigger: <span class="str">".conclusions"</span>, start: <span 
 </div>
 <div class="card">
 <div style="margin-bottom:0.75rem;"><span class="tag tag-purple">Метод</span></div>
-<h3>Stagger</h3>
-<p style="font-size:0.8rem;">Эффект «каскадного» появления элементов. Когда группа объектов (например, слова в заголовке) анимируется не одновременно, а с небольшой задержкой друг за другом.</p>
+<h3>animation-delay</h3>
+<p style="font-size:0.8rem;">CSS-свойство, задающее задержку перед стартом анимации. Когда у каждого элемента группы (например, слов заголовка) своя задержка, они стартуют по очереди, создавая каскадный эффект.</p>
 </div>
 <div class="card">
 <div style="margin-bottom:0.75rem;"><span class="tag tag-orange">Адаптив</span></div>
@@ -1419,55 +1273,45 @@ scrollTrigger: { trigger: <span class="str">".conclusions"</span>, start: <span 
 <div class="section-line"></div>
 </div>
 <div class="tutorials-note">
-<h3>✦ О помощи видеоуроков в проекте</h3>
-<p>Скрипты на JavaScript (анимации, слайдер, мобильное меню) были написаны с помощью видеоуроков, поскольку автор не изучала программирование. Это честный и современный подход — видеоуроки выступали инструментом реализации, как фотоаппарат для фотографа.</p>
-<p>Весь остальной контент — текст, структура, концепция, дизайн-решения, выбор изображений, тема и её раскрытие — написаны и созданы автором самостоятельно.</p>
+<h3>✦ Использование видеоуроков</h3>
+<p>Все программные решения проекта (JavaScript-скрипты) были реализованы на основе видеоуроков. Это позволило создать качественный и рабочий функционал, соответствующий современным стандартам веб-разработки.</p>
+<p>Текстовое наполнение, структура сайта, дизайн, подбор визуальных материалов и общая концепция разработаны автором самостоятельно.</p>
 </div>
 <div class="card-grid" style="margin-top:1.5rem;">
 <div class="card">
-<div style="margin-bottom:0.75rem;"><span class="tag tag-green">Написано автором</span></div>
-<h3>Собственная работа</h3>
-<p style="font-size:0.8rem;">Все тексты на страницах, тема и её раскрытие, концепция сайта, структура страниц, HTML-разметка, CSS-стили, подбор фотографий, статистические данные и выводы.</p>
+<div style="margin-bottom:0.75rem;"><span class="tag tag-green">Контент и дизайн</span></div>
+<h3>Авторская работа</h3>
+<p style="font-size:0.8rem;">Все тексты, логика подачи материала, структура страниц, HTML-верстка, CSS-стилизация и визуальная эстетика проекта.</p>
 </div>
 <div class="card">
-<div style="margin-bottom:0.75rem;"><span class="tag tag-purple">При помощи видеоуроков</span></div>
-<h3>JavaScript-скрипты</h3>
-<p style="font-size:0.8rem;">Анимации GSAP (загрузка страницы, появление при скролле, параллакс), слайдер направлений с навигацией и адаптивностью, мобильное бургер-меню.</p>
+<div style="margin-bottom:0.75rem;"><span class="tag tag-purple">По видеоурокам</span></div>
+<h3>JavaScript-логика</h3>
+<p style="font-size:0.8rem;">Абсолютно все скрипты на сайте: мобильное меню на всех страницах, интерактивный слайдер в directions.html и логика навигации в паспорте.</p>
 </div>
 </div>
 <div class="divider"></div>
-<h3>Краткий итог по технологиям</h3>
+<h3>Технологический стек</h3>
 <table class="info-table" style="margin-top:1rem;">
-<thead><tr><th>Технология</th><th>Назначение</th><th>Уровень</th></tr></thead>
+<thead><tr><th>Технология</th><th>Назначение</th><th>Метод реализации</th></tr></thead>
 <tbody>
 <tr>
 <td>HTML5</td>
-<td>Структура и содержимое всех трёх страниц</td>
+<td>Структура всех страниц сайта</td>
 <td><span class="tag tag-green">Автор</span></td>
 </tr>
 <tr>
 <td>CSS3</td>
-<td>Оформление, цвета, анимации (marquee, hover, transitions)</td>
+<td>Стилизация, адаптив и оформление</td>
 <td><span class="tag tag-green">Автор</span></td>
 </tr>
 <tr>
 <td>JavaScript</td>
-<td>Интерактивность: меню, слайдер, GSAP-анимации</td>
-<td><span class="tag tag-purple">С видеоуроками</span></td>
+<td>Вся интерактивность сайта</td>
+<td><span class="tag tag-purple">Видеоуроки</span></td>
 </tr>
 <tr>
-<td>GSAP 3.12.2</td>
-<td>Библиотека профессиональных анимаций</td>
-<td><span class="tag tag-accent">CDN</span></td>
-</tr>
-<tr>
-<td>Google Fonts</td>
-<td>Шрифты Cormorant Garamond и Manrope</td>
-<td><span class="tag tag-accent">CDN</span></td>
-</tr>
-<tr>
-<td>SVG-иконки</td>
-<td>Иконки в карточках и навигации (встроены inline в HTML)</td>
+<td>SVG</td>
+<td>Графические элементы и иконки</td>
 <td><span class="tag tag-green">Автор</span></td>
 </tr>
 </tbody>
@@ -1476,35 +1320,54 @@ scrollTrigger: { trigger: <span class="str">".conclusions"</span>, start: <span 
 </main>
 <a href="#" class="scroll-top">↑</a>
 <script>
+
 const links = document.querySelectorAll('.sidebar a');
 const sections = document.querySelectorAll('section[id]');
 const sidebar = document.querySelector('.sidebar');
 const mobileToggle = document.getElementById('mobileToggle');
-mobileToggle.addEventListener('click', () => {
+
+
+mobileToggle.addEventListener('click', function() {
 sidebar.classList.toggle('active');
 mobileToggle.classList.toggle('active');
 });
-links.forEach(link => {
-link.addEventListener('click', () => {
+
+
+for (let i = 0; i < links.length; i++) {
+links[i].addEventListener('click', function() {
+
 if (window.innerWidth <= 800) {
 sidebar.classList.remove('active');
 mobileToggle.classList.remove('active');
 }
 });
-});
-const observer = new IntersectionObserver((entries) => {
-entries.forEach(entry => {
+}
+
+
+const observerOptions = {
+threshold: 0.3
+};
+
+const observer = new IntersectionObserver(function(entries) {
+for (let j = 0; j < entries.length; j++) {
+let entry = entries[j];
 if (entry.isIntersecting) {
-links.forEach(link => {
-link.classList.remove('active');
-if (link.getAttribute('href') === '#' + entry.target.id) {
-link.classList.add('active');
+
+for (let k = 0; k < links.length; k++) {
+links[k].classList.remove('active');
+
+if (links[k].getAttribute('href') === '#' + entry.target.id) {
+links[k].classList.add('active');
 }
-});
 }
-});
-}, { threshold: 0.3 });
-sections.forEach(s => observer.observe(s));
+}
+}
+}, observerOptions);
+
+
+for (let m = 0; j = sections.length, m < j; m++) {
+observer.observe(sections[m]);
+}
 </script>
 </body>
 </html>
